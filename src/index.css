@@ -1,0 +1,107 @@
+:root {
+  --bg: #0b0f1a;
+  --bg2: #0f172a;
+  --card: rgba(255,255,255,0.05);
+  --accent1: #22d3ee;
+  --accent2: #a78bfa;
+  --accent3: #f472b6;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 10% 10%, #0b2a3c 0%, transparent 60%),
+              radial-gradient(1000px 500px at 90% 20%, #2a0b3c 0%, transparent 55%),
+              linear-gradient(135deg, var(--bg), var(--bg2));
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.section {
+  padding: 110px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 60px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 28px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border-color: rgba(34,211,238,0.5);
+}
+
+.muted {
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.7;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== Light Page Book Effect ===== */
+
+.light-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 420px; /* one-page width */
+
+  pointer-events: none;
+  z-index: 1;
+
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(167, 139, 250, 0.15) 35%,
+    rgba(34, 211, 238, 0.25) 50%,
+    rgba(167, 139, 250, 0.15) 65%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  filter: blur(6px);
+  border-radius: 20px;
+}
