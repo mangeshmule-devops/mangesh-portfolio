@@ -110,7 +110,7 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="https://drive.google.com/file/d/1WaTevh7sPcEFOt-GeOboF4a8AQ1jjxNc/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1idLdPeeoRGibkYcXsn8w1NHoP5q9jM-F/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{
