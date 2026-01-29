@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./Certifications.css";
 
 /* ===== CERTIFICATE IMAGES (DO NOT RENAME) ===== */
 import rhcsaImg from "../assets/certifications/redhat.png";
@@ -65,6 +66,7 @@ export default function Certifications() {
 
       {/* ===== GRID ===== */}
       <div
+        className="certifications-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))",

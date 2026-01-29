@@ -1,0 +1,8 @@
+/* (kept minimal on purpose — current grid already uses auto-fit/minmax and wraps well) */
+
+@media (max-width: 480px) {
+  #education {
+    padding-left: 4% !important;
+    padding-right: 4% !important;
+  }
+}

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./FoldingPage.css";
 
 export default function LightPage() {
   return (

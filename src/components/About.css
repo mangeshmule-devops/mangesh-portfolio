@@ -1,0 +1,28 @@
+@media (max-width: 900px) {
+  .about-hof-outer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .about-hof-grid {
+    grid-template-columns: repeat(3, minmax(120px, 1fr)) !important;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-hof-grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .about-hof-item {
+    width: 130px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-hof-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

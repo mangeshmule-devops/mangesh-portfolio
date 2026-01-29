@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa";
+import "./Contact.css";
 
 export default function Contact() {
   return (
@@ -150,18 +151,6 @@ export default function Contact() {
           </form>
         </motion.div>
       </div>
-
-      {/* ===== RESPONSIVE ===== */}
-      <style>
-        {`
-          @media (max-width: 900px) {
-            #contact > div {
-              grid-template-columns: 1fr;
-              gap: 60px;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 }

@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile.png";
+import "./Hero.css";
+
+const Motion = motion;
 
 export default function Hero() {
   return (
@@ -14,7 +17,7 @@ export default function Hero() {
       }}
     >
       <div
-        className="container"
+        className="container hero-container"
         style={{
           width: "100%",
           display: "flex",
@@ -24,6 +27,7 @@ export default function Hero() {
       >
         {/* LEFT CONTENT */}
         <div
+          className="hero-left"
           style={{
             maxWidth: "720px",
             textAlign: "center",
@@ -31,7 +35,7 @@ export default function Hero() {
           }}
         >
           {/* NAME */}
-          <motion.h1
+          <Motion.h1
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -45,10 +49,10 @@ export default function Hero() {
             }}
           >
             Mangesh
-          </motion.h1>
+          </Motion.h1>
 
           {/* ROLE */}
-          <motion.p
+          <Motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
@@ -58,10 +62,10 @@ export default function Hero() {
             }}
           >
             DevOps Engineer | Cloud | Linux | Security
-          </motion.p>
+          </Motion.p>
 
           {/* DESCRIPTION */}
-          <motion.p
+          <Motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.4 }}
@@ -72,10 +76,10 @@ export default function Hero() {
             }}
           >
             I build scalable, automated and secure cloud systems & CI/CD pipelines.
-          </motion.p>
+          </Motion.p>
 
           {/* BUTTONS */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.4 }}
@@ -86,7 +90,7 @@ export default function Hero() {
               justifyContent: "center",
             }}
           >
-            <motion.a
+            <Motion.a
               href="#about"
               whileHover={{
                 scale: 1.08,
@@ -107,9 +111,9 @@ export default function Hero() {
               }}
             >
               Know More ↓
-            </motion.a>
+            </Motion.a>
 
-            <motion.a
+            <Motion.a
               href="https://drive.google.com/file/d/1idLdPeeoRGibkYcXsn8w1NHoP5q9jM-F/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
@@ -132,12 +136,13 @@ export default function Hero() {
               }}
             >
               View Resume 📄
-            </motion.a>
-          </motion.div>
+            </Motion.a>
+          </Motion.div>
         </div>
 
         {/* RIGHT IMAGE – HEXAGON */}
-        <motion.div
+        <Motion.div
+          className="hero-right"
           animate={{ scale: [1, 1.045, 1] }}
           transition={{
             duration: 6,
@@ -171,7 +176,7 @@ export default function Hero() {
           />
 
           {/* RED SCAN ANIMATION */}
-          <motion.div
+          <Motion.div
             animate={{ y: ["-120%", "120%", "-120%"] }}
             transition={{
               duration: 6,
@@ -189,7 +194,7 @@ export default function Hero() {
                 "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
             }}
           />
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );

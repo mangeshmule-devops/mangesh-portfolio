@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./Skills.css";
 
 const skillsData = [
   {
@@ -219,22 +220,6 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
-
-      {/* ===== RESPONSIVE ===== */}
-      <style>
-        {`
-          @media (max-width: 1024px) {
-            #skills > div {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-          @media (max-width: 640px) {
-            #skills > div {
-              grid-template-columns: 1fr;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 }

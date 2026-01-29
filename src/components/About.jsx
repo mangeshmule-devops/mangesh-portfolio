@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./About.css";
 
 /* ---------- LOGO IMPORTS ---------- */
 import lookaLogo from "../assets/hallOfFame/looka.png";
@@ -80,6 +81,7 @@ export default function About() {
 
         {/* ================= ABOUT CARDS ================= */}
         <div
+          className="about-cards-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -182,6 +184,7 @@ export default function About() {
         {/* ================= HALL OF FAME GRID ================= */}
         {/* ================= HALL OF FAME GRID ================= */}
 <div
+  className="about-hof-outer"
   style={{
     marginTop: "130px",      // ✅ increased gap (clean & balanced)
     maxWidth: "1040px",
@@ -194,6 +197,7 @@ export default function About() {
   }}
 >
           <div
+            className="about-hof-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(4, minmax(180px, 1fr))",
@@ -203,6 +207,7 @@ export default function About() {
             {HALL_OF_FAME.map((company, idx) => (
               <motion.a
                 key={idx}
+                className="about-hof-item"
                 href={company.url}
                 target="_blank"
                 rel="noopener noreferrer"
