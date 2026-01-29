@@ -1,0 +1,10 @@
+#contact > div {
+  display: grid;
+}
+
+@media (max-width: 900px) {
+  #contact > div {
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+  }
+}

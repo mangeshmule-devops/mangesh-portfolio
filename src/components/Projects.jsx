@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import "./Projects.css";
 
 /* 🔹 IMPORT YOUR SCREENSHOTS */
 import demo1 from "../assets/projects/dd-task-1.png";
@@ -220,6 +221,7 @@ export default function Projects() {
             }}
           >
             <motion.div
+              className="projects-modal"
               initial={{ scale: 0.9, y: 30 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 30 }}
@@ -244,6 +246,7 @@ export default function Projects() {
               </h3>
 
               <div
+                className="projects-demo-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "1fr 1fr",

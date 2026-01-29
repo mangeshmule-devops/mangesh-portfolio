@@ -1,0 +1,9 @@
+@media (max-width: 640px) {
+  .projects-demo-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .projects-modal {
+    padding: 20px !important;
+  }
+}

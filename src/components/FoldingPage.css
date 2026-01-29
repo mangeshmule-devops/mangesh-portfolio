@@ -1,0 +1,9 @@
+@media (max-width: 640px) {
+  .fold-page {
+    width: 280px;
+  }
+
+  .light-page {
+    width: 280px;
+  }
+}

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import "./Education.css";
 
 /* 🔹 DEGREE CERTIFICATE (opens in new tab) */
 const degreeCertificateUrl =

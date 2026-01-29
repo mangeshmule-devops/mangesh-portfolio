@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
@@ -47,6 +48,7 @@ export default function Navbar() {
 
   return (
     <nav
+      className="navbar"
       style={{
         position: "fixed",
         top: 0,
@@ -79,7 +81,7 @@ export default function Navbar() {
       </div>
 
       {/* NAV LINKS */}
-      <div style={{ display: "flex", gap: "30px" }}>
+      <div className="navbar-links" style={{ display: "flex", gap: "30px" }}>
         {navItems.map((item) => {
           const isActive = active === item.link;
 
