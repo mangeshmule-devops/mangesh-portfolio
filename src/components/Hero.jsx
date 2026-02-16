@@ -138,58 +138,64 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* RIGHT IMAGE – HEXAGON */}
-        <motion.div
-          animate={{ scale: [1, 1.045, 1] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            width: "clamp(220px, 60vw, 340px)", // 🔥 responsive
-            height: "clamp(220px, 60vw, 340px)",
-            padding: "6px",
-            background:
-              "linear-gradient(135deg,#ec4899,#3b82f6)",
-            clipPath:
-              "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <img
-            src={profileImg}
-            alt="Mangesh"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              clipPath:
-                "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-            }}
-          />
+       {/* RIGHT IMAGE – CIRCLE */}
+<motion.div
+  animate={{ scale: [1, 1.05, 1] }}
+  transition={{
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  style={{
+    width: "clamp(240px, 55vw, 360px)",
+    height: "clamp(240px, 55vw, 360px)",
+    padding: "6px",
+    borderRadius: "50%",
+    background: "linear-gradient(135deg,#ec4899,#3b82f6)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <div
+    style={{
+      width: "100%",
+      height: "100%",
+      borderRadius: "50%",
+      overflow: "hidden",
+      position: "relative",
+    }}
+  >
+    <img
+      src={profileImg}
+      alt="Mangesh"
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+      }}
+    />
 
-          {/* RED SCAN ANIMATION (UNCHANGED) */}
-          <motion.div
-            animate={{ y: ["-120%", "120%", "-120%"] }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(180deg, transparent 0%, rgba(239,68,68,0.35) 50%, transparent 100%)",
-              mixBlendMode: "screen",
-              pointerEvents: "none",
-              clipPath:
-                "polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%)",
-            }}
-          />
-        </motion.div>
+    {/* SCAN EFFECT */}
+    <motion.div
+      animate={{ y: ["-120%", "120%", "-120%"] }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      style={{
+        position: "absolute",
+        inset: 0,
+        background:
+          "linear-gradient(180deg, transparent 0%, rgba(239,68,68,0.3) 50%, transparent 100%)",
+        mixBlendMode: "screen",
+        pointerEvents: "none",
+      }}
+    />
+  </div>
+</motion.div>
+
       </div>
     </section>
   );
