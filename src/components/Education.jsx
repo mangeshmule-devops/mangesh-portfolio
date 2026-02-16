@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-/* 🔹 DEGREE CERTIFICATE (opens in new tab) */
 const degreeCertificateUrl =
   "https://drive.google.com/file/d/1AcIBT_j_BYKJMu7stixGNBmFY7tRgVbm/view?usp=drive_link";
 
@@ -42,32 +41,30 @@ export default function Education() {
     <section
       id="education"
       style={{
-        padding: "110px 6% 160px", // ✅ extra bottom space
-        background: "var(--bg-primary)",
-        minHeight: "100vh",        // ✅ prevents Certifications peek
-        scrollMarginTop: "110px",  // ✅ navbar offset
+        padding: "80px 6% 100px",   // 🔥 reduced top padding
+        scrollMarginTop: "90px",    // 🔥 tighter navbar offset
       }}
     >
-      {/* ===== HEADING ===== */}
+      {/* ===== HEADING (NOW MATCHES SKILLS VISUALLY) ===== */}
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         style={{
           textAlign: "center",
-          marginBottom: "80px",
+          marginBottom: "60px",   // 🔥 reduced gap below heading
           fontSize: "clamp(2.6rem, 4vw, 3.2rem)",
           fontWeight: 700,
-          color: "#3b82f6",
+          background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
         }}
       >
         Education
-        <motion.span
-          initial={{ width: 0, opacity: 0 }}
-          whileInView={{ width: "90px", opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <span
           style={{
             display: "block",
+            width: "90px",
             height: "3px",
             margin: "18px auto 0",
             background: "#3b82f6",
@@ -81,25 +78,25 @@ export default function Education() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-          gap: "36px",
+          gap: "34px",
         }}
       >
         {educationData.map((edu, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ y: -12, scale: 1.03 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10, scale: 1.02 }}
             transition={{ duration: 0.4 }}
             style={{
-              padding: "32px",
-              borderRadius: "20px",
+              padding: "28px",
+              borderRadius: "18px",
               background:
                 "linear-gradient(180deg, rgba(59,130,246,0.08), rgba(15,23,42,1))",
               border: "1px solid rgba(59,130,246,0.35)",
             }}
           >
-            {/* LEVEL */}
             <p
               style={{
                 fontSize: "0.8rem",
@@ -113,7 +110,6 @@ export default function Education() {
               {edu.level}
             </p>
 
-            {/* DEGREE */}
             <h3
               style={{
                 fontSize: "1.35rem",
@@ -125,7 +121,6 @@ export default function Education() {
               {edu.degree}
             </h3>
 
-            {/* FIELD */}
             <p
               style={{
                 color: "#93c5fd",
@@ -136,7 +131,6 @@ export default function Education() {
               {edu.field}
             </p>
 
-            {/* INSTITUTE */}
             <p
               style={{
                 color: "#e5e7eb",
@@ -147,7 +141,6 @@ export default function Education() {
               {edu.institute}
             </p>
 
-            {/* UNIVERSITY */}
             {edu.university && (
               <p
                 style={{
@@ -160,7 +153,6 @@ export default function Education() {
               </p>
             )}
 
-            {/* PERFORMANCE + YEAR */}
             <div
               style={{
                 marginTop: "12px",
@@ -168,7 +160,6 @@ export default function Education() {
                 borderTop: "1px solid rgba(59,130,246,0.25)",
                 display: "flex",
                 justifyContent: "space-between",
-                alignItems: "center",
                 flexWrap: "wrap",
                 gap: "8px",
               }}
@@ -207,7 +198,6 @@ export default function Education() {
               </div>
             </div>
 
-            {/* CERTIFICATE LINK */}
             {edu.certificate && (
               <div style={{ marginTop: "18px" }}>
                 <a

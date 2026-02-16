@@ -18,8 +18,10 @@ export default function Hero() {
         style={{
           width: "100%",
           display: "flex",
-          justifyContent: "space-between",
+          flexWrap: "wrap", // 🔥 allows stacking on mobile
+          justifyContent: "center",
           alignItems: "center",
+          gap: "60px",
         }}
       >
         {/* LEFT CONTENT */}
@@ -27,7 +29,6 @@ export default function Hero() {
           style={{
             maxWidth: "720px",
             textAlign: "center",
-            transform: "translateX(-120px)",
           }}
         >
           {/* NAME */}
@@ -36,7 +37,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             style={{
-              fontSize: "4.8rem",
+              fontSize: "clamp(2.5rem, 10vw, 4.8rem)", // 🔥 responsive
               fontWeight: 900,
               background:
                 "linear-gradient(90deg,#ec4899,#3b82f6,#ef4444)",
@@ -53,7 +54,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.4 }}
             style={{
-              fontSize: "1.3rem",
+              fontSize: "clamp(1rem, 4vw, 1.3rem)", // 🔥 responsive
               color: "#dbeafe",
             }}
           >
@@ -67,7 +68,7 @@ export default function Hero() {
             transition={{ delay: 0.35, duration: 0.4 }}
             style={{
               marginTop: "12px",
-              fontSize: "1.15rem",
+              fontSize: "clamp(0.95rem, 3.5vw, 1.15rem)", // 🔥 responsive
               color: "#94a3b8",
             }}
           >
@@ -82,6 +83,7 @@ export default function Hero() {
             style={{
               marginTop: "34px",
               display: "flex",
+              flexWrap: "wrap", // 🔥 stack on mobile
               gap: "18px",
               justifyContent: "center",
             }}
@@ -145,10 +147,9 @@ export default function Hero() {
             ease: "easeInOut",
           }}
           style={{
-            width: "340px",
-            height: "340px",
+            width: "clamp(220px, 60vw, 340px)", // 🔥 responsive
+            height: "clamp(220px, 60vw, 340px)",
             padding: "6px",
-            marginRight: "80px",
             background:
               "linear-gradient(135deg,#ec4899,#3b82f6)",
             clipPath:
@@ -157,7 +158,6 @@ export default function Hero() {
             overflow: "hidden",
           }}
         >
-          {/* IMAGE */}
           <img
             src={profileImg}
             alt="Mangesh"
@@ -170,7 +170,7 @@ export default function Hero() {
             }}
           />
 
-          {/* RED SCAN ANIMATION */}
+          {/* RED SCAN ANIMATION (UNCHANGED) */}
           <motion.div
             animate={{ y: ["-120%", "120%", "-120%"] }}
             transition={{

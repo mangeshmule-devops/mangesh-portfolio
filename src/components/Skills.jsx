@@ -84,8 +84,7 @@ export default function Skills() {
     <section
       id="skills"
       style={{
-        padding: "100px 6%",
-        background: "var(--bg-primary)",
+        padding: "clamp(80px, 10vw, 100px) 6%",
       }}
     >
       {/* ===== SECTION HEADING ===== */}
@@ -95,8 +94,8 @@ export default function Skills() {
         transition={{ duration: 0.6 }}
         style={{
           textAlign: "center",
-          marginBottom: "80px",
-          fontSize: "clamp(2.6rem, 4vw, 3.2rem)",
+          marginBottom: "clamp(50px, 8vw, 80px)",
+          fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
           fontWeight: 700,
           background: "linear-gradient(90deg, #8b5cf6, #ec4899)",
           WebkitBackgroundClip: "text",
@@ -116,12 +115,13 @@ export default function Skills() {
         />
       </motion.h2>
 
-      {/* ===== GRID ===== */}
+      {/* ===== RESPONSIVE GRID ===== */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gap: "34px",
+          gridTemplateColumns:
+            "repeat(auto-fit, minmax(300px, 1fr))", // 🔥 responsive fix
+          gap: "clamp(20px, 4vw, 34px)",
         }}
       >
         {skillsData.map((category, index) => (
@@ -130,8 +130,6 @@ export default function Skills() {
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-
-            /* 🔥 STRONG POP + BLINK ON HOVER */
             whileHover={{
               y: -18,
               scale: 1.06,
@@ -141,14 +139,12 @@ export default function Skills() {
                 "0 0 0 1px rgba(139,92,246,0.35)",
               ],
             }}
-
             transition={{
               duration: 0.45,
               ease: "easeOut",
             }}
-
             style={{
-              padding: "28px",
+              padding: "clamp(22px, 4vw, 28px)",
               borderRadius: "18px",
               background:
                 "linear-gradient(180deg, rgba(139,92,246,0.08), rgba(17,22,42,1))",
@@ -162,7 +158,7 @@ export default function Skills() {
               transition={{ duration: 0.4, ease: "easeOut" }}
               style={{
                 marginBottom: "22px",
-                fontSize: "1.35rem",
+                fontSize: "clamp(1.2rem, 3vw, 1.35rem)",
                 fontWeight: 600,
                 color: "#c4b5fd",
                 textAlign: "center",
@@ -219,22 +215,6 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
-
-      {/* ===== RESPONSIVE ===== */}
-      <style>
-        {`
-          @media (max-width: 1024px) {
-            #skills > div {
-              grid-template-columns: repeat(2, 1fr);
-            }
-          }
-          @media (max-width: 640px) {
-            #skills > div {
-              grid-template-columns: 1fr;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 }

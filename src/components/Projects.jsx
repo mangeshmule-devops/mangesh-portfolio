@@ -1,7 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-/* 🔹 IMPORT YOUR SCREENSHOTS */
 import demo1 from "../assets/projects/dd-task-1.png";
 import demo2 from "../assets/projects/dd-task-2.png";
 
@@ -25,34 +24,30 @@ export default function Projects() {
       <section
         id="projects"
         style={{
-          padding: "110px 6% 160px", // ✅ extra bottom space
-          background: "var(--bg-primary)",
-          minHeight: "100vh",        // ✅ fills viewport (prevents Education peek)
-          scrollMarginTop: "110px",  // ✅ navbar offset fix
+          padding: "80px 6% 100px",   // 🔥 EXACT SAME AS EDUCATION
+          scrollMarginTop: "90px",    // 🔥 SAME NAVBAR OFFSET
         }}
       >
         {/* ===== HEADING ===== */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           style={{
             textAlign: "center",
-            marginBottom: "80px",
+            marginBottom: "60px", // 🔥 SAME AS EDUCATION
             fontSize: "clamp(2.6rem, 4vw, 3.2rem)",
             fontWeight: 700,
-            color: "#3b82f6",
+            background: "linear-gradient(90deg, #3b82f6, #60a5fa)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
           }}
         >
           Projects
-
-          {/* Animated underline */}
-          <motion.span
-            initial={{ width: 0, opacity: 0 }}
-            whileInView={{ width: "90px", opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+          <span
             style={{
               display: "block",
+              width: "90px",
               height: "3px",
               margin: "18px auto 0",
               background: "#3b82f6",
@@ -66,26 +61,25 @@ export default function Projects() {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
           }}
         >
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
-              whileHover={{ y: -12, scale: 1.04 }}
+              whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.4 }}
               style={{
                 maxWidth: "560px",
                 width: "100%",
-                padding: "32px",
-                borderRadius: "20px",
+                padding: "28px",
+                borderRadius: "18px",
                 background:
                   "linear-gradient(180deg, rgba(59,130,246,0.08), rgba(15,23,42,1))",
                 border: "1px solid rgba(59,130,246,0.35)",
                 textAlign: "center",
               }}
             >
-              {/* ===== PROJECT TITLE ===== */}
+              {/* TITLE */}
               <motion.h3
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,13 +91,10 @@ export default function Projects() {
                 }}
               >
                 {project.title}
-
-                <motion.span
-                  initial={{ width: 0, opacity: 0 }}
-                  whileInView={{ width: "60%", opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                <span
                   style={{
                     display: "block",
+                    width: "60%",
                     height: "2px",
                     margin: "8px auto 0",
                     background: "#60a5fa",
@@ -112,7 +103,7 @@ export default function Projects() {
                 />
               </motion.h3>
 
-              {/* ===== DESCRIPTION ===== */}
+              {/* DESCRIPTION */}
               <p
                 style={{
                   color: "#e5e7eb",
@@ -123,7 +114,7 @@ export default function Projects() {
                 {project.description}
               </p>
 
-              {/* ===== TECH STACK ===== */}
+              {/* TECH STACK */}
               <div
                 style={{
                   display: "flex",
@@ -151,10 +142,11 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* ===== BUTTONS ===== */}
+              {/* BUTTONS */}
               <div
                 style={{
                   display: "flex",
+                  flexWrap: "wrap",
                   gap: "16px",
                   justifyContent: "center",
                 }}
@@ -217,6 +209,7 @@ export default function Projects() {
               justifyContent: "center",
               alignItems: "center",
               zIndex: 999,
+              padding: "20px",
             }}
           >
             <motion.div
@@ -229,7 +222,7 @@ export default function Projects() {
                 padding: "28px",
                 borderRadius: "20px",
                 maxWidth: "900px",
-                width: "90%",
+                width: "100%",
                 border: "1px solid rgba(59,130,246,0.4)",
               }}
             >
@@ -246,7 +239,8 @@ export default function Projects() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(250px, 1fr))",
                   gap: "20px",
                 }}
               >

@@ -13,7 +13,6 @@ import honeywellLogo from "../assets/hallOfFame/honeywell.png";
 import accentureLogo from "../assets/hallOfFame/accenture.png";
 import dfatLogo from "../assets/hallOfFame/dfat.png";
 
-/* ---------- MAIN ---------- */
 const LARGE_LOGO_COMPANIES = [
   "Looka",
   "University of Nebraska",
@@ -28,12 +27,14 @@ export default function About() {
   return (
     <section
       id="about"
-      className="section"
       style={{
-        padding: "70px 6% 90px",      // ⬆ pulled up
+        paddingTop: "40px",
+        paddingBottom: "100px",
+        paddingLeft: "6%",
+        paddingRight: "6%",
         display: "flex",
         justifyContent: "center",
-        scrollMarginTop: "100px",     // ⬆ better anchor alignment
+        scrollMarginTop: "90px",
       }}
     >
       <div style={{ maxWidth: "1200px", width: "100%" }}>
@@ -48,7 +49,7 @@ export default function About() {
             textAlign: "center",
             fontSize: "3rem",
             fontWeight: 800,
-            marginBottom: "16px",     // ⬆ tighter
+            marginBottom: "14px",
             background: "linear-gradient(90deg,#22d3ee,#a78bfa)",
             WebkitBackgroundClip: "text",
             color: "transparent",
@@ -64,7 +65,7 @@ export default function About() {
           transition={{ delay: 0.1, duration: 0.5 }}
           style={{
             maxWidth: "900px",
-            margin: "0 auto 44px",   // ⬆ reduced
+            margin: "0 auto 36px",
             textAlign: "center",
             fontSize: "1.15rem",
             color: "#94a3b8",
@@ -83,42 +84,33 @@ export default function About() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "28px",            // ⬆ slightly tighter
-            marginTop: "24px",      // ⬆ pulled up
+            gap: "28px",
+            marginBottom: "60px",
           }}
         >
-          <AboutCard
-            title="DevOps"
-            items={[
-              "End-to-end CI/CD pipeline design and automation",
-              "Infrastructure automation to minimize manual provisioning",
-              "Containerized application management across environments",
-              "Monitoring and logging for reliability and faster recovery",
-              "Collaboration with teams to improve deployment stability",
-            ]}
-          />
+          <AboutCard title="DevOps" items={[
+            "End-to-end CI/CD pipeline design and automation",
+            "Infrastructure automation to minimize manual provisioning",
+            "Containerized application management across environments",
+            "Monitoring and logging for reliability and faster recovery",
+            "Collaboration with teams to improve deployment stability",
+          ]} />
 
-          <AboutCard
-            title="Linux & System Administration"
-            items={[
-              "Linux system administration with focus on stability and security",
-              "User, group, permission, and access management",
-              "System services, logging, and scheduled job configuration",
-              "System-level troubleshooting and issue resolution",
-              "Patching and package management for system updates",
-            ]}
-          />
+          <AboutCard title="Linux & System Administration" items={[
+            "Linux system administration with focus on stability and security",
+            "User, group, permission, and access management",
+            "System services, logging, and scheduled job configuration",
+            "System-level troubleshooting and issue resolution",
+            "Patching and package management for system updates",
+          ]} />
 
-          <AboutCard
-            title="Application Security (Web & Infrastructure)"
-            items={[
-              "Manual security assessments with ~3 years of experience",
-              "Vulnerability identification and validation",
-              "Authentication, authorization, and session testing",
-              "Responsible security disclosure",
-              "Security posture improvement guidance",
-            ]}
-          />
+          <AboutCard title="Application Security (Web & Infrastructure)" items={[
+            "Manual security assessments with ~3 years of experience",
+            "Vulnerability identification and validation",
+            "Authentication, authorization, and session testing",
+            "Responsible security disclosure",
+            "Security posture improvement guidance",
+          ]} />
         </div>
 
         {/* ================= SECURITY HEADER ================= */}
@@ -128,7 +120,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
           style={{
-            marginTop: "130px",      // ⬆ pulled UP (was 140+)
+            marginTop: "40px",
             padding: "18px 22px",
             maxWidth: "760px",
             marginLeft: "auto",
@@ -140,20 +132,6 @@ export default function About() {
             position: "relative",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "2px",
-              background:
-                "linear-gradient(90deg,#22d3ee,#a78bfa,#f472b6)",
-              borderTopLeftRadius: "14px",
-              borderTopRightRadius: "14px",
-            }}
-          />
-
           <h3
             style={{
               textAlign: "center",
@@ -180,24 +158,25 @@ export default function About() {
         </motion.div>
 
         {/* ================= HALL OF FAME GRID ================= */}
-        {/* ================= HALL OF FAME GRID ================= */}
-<div
-  style={{
-    marginTop: "130px",      // ✅ increased gap (clean & balanced)
-    maxWidth: "1040px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderLeft: "1px solid rgba(255,255,255,0.18)",
-    borderRight: "1px solid rgba(255,255,255,0.18)",
-    paddingLeft: "32px",
-    paddingRight: "32px",
-  }}
->
+        <div
+          style={{
+            marginTop: "80px",
+            maxWidth: "1040px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            borderLeft: "1px solid rgba(255,255,255,0.18)",
+            borderRight: "1px solid rgba(255,255,255,0.18)",
+            paddingLeft: "clamp(16px, 4vw, 32px)",
+            paddingRight: "clamp(16px, 4vw, 32px)",
+          }}
+        >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, minmax(180px, 1fr))",
-              gap: "22px",
+              gridTemplateColumns:
+                "repeat(auto-fit, minmax(140px, 1fr))",
+              gap: "clamp(16px, 4vw, 22px)",
+              justifyItems: "center",
             }}
           >
             {HALL_OF_FAME.map((company, idx) => (
@@ -209,19 +188,15 @@ export default function About() {
                 whileHover={{ y: -8, scale: 1.08 }}
                 transition={{ type: "spring", stiffness: 180, damping: 16 }}
                 style={{
-                  width: "140px",
-                  height: "90px",
+                  width: "clamp(110px, 28vw, 140px)",
+                  height: "clamp(75px, 20vw, 90px)",
                   borderRadius: "50%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  position: "relative",
                   overflow: "hidden",
-                  background:
-                    "linear-gradient(180deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05))",
-                  border: "1px solid rgba(255,255,255,0.35)",
-                  boxShadow:
-                    "0 10px 22px rgba(0,0,0,0.55), inset 0 2px 3px rgba(255,255,255,0.35)",
+                  background: "#ffffff",                // 🔥 white background
+                  border: "1px solid #3b82f6",          // 🔥 thin blue border
                 }}
               >
                 <motion.img
@@ -231,13 +206,13 @@ export default function About() {
                     maxWidth: isLargeLogo(company.name) ? "92%" : "88%",
                     maxHeight: isLargeLogo(company.name) ? "78%" : "75%",
                     objectFit: "contain",
-                    zIndex: 1,
                   }}
                 />
               </motion.a>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
@@ -255,7 +230,7 @@ function AboutCard({ title, items }) {
         border: "1px solid rgba(148,163,184,0.15)",
         borderRadius: "14px",
         padding: "32px",
-        minHeight: "280px",   // ⬆ slightly shorter
+        minHeight: "280px",
       }}
     >
       <h3
@@ -288,6 +263,7 @@ function AboutCard({ title, items }) {
     </motion.div>
   );
 }
+
 
 /* ---------- HALL OF FAME DATA ---------- */
 const HALL_OF_FAME = [

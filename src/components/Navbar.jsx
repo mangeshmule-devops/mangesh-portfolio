@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   const clickLockRef = useRef(false);
 
   useEffect(() => {
@@ -36,10 +37,10 @@ export default function Navbar() {
   ];
 
   const handleClick = (link) => {
-    setActive(link); // ⚡ instant visual feedback
+    setActive(link);
     clickLockRef.current = true;
+    setMenuOpen(false);
 
-    // release scroll lock quickly
     setTimeout(() => {
       clickLockRef.current = false;
     }, 150);
@@ -56,7 +57,7 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 80px",
+        padding: "0 clamp(20px, 6vw, 80px)", // 🔥 responsive padding
         background: "rgba(10,15,30,0.85)",
         backdropFilter: "blur(10px)",
         zIndex: 1000,
@@ -66,7 +67,7 @@ export default function Navbar() {
       {/* LOGO */}
       <div
         style={{
-          fontSize: "1.55rem",
+          fontSize: "clamp(1.2rem, 4vw, 1.55rem)",
           fontWeight: 900,
           background:
             "linear-gradient(90deg,#ec4899,#3b82f6,#ef4444)",
@@ -78,8 +79,13 @@ export default function Navbar() {
         Mangesh
       </div>
 
-      {/* NAV LINKS */}
-      <div style={{ display: "flex", gap: "30px" }}>
+      {/* DESKTOP NAV */}
+      <div
+        style={{
+          display: window.innerWidth > 768 ? "flex" : "none",
+          gap: "30px",
+        }}
+      >
         {navItems.map((item) => {
           const isActive = active === item.link;
 
@@ -94,22 +100,12 @@ export default function Navbar() {
                 textDecoration: "none",
                 fontSize: "1rem",
                 fontWeight: 600,
-                letterSpacing: "0.4px",
                 paddingBottom: "6px",
-
-                // ⚡ ultra-fast feedback
-                transition: "color 0.08s linear, transform 0.08s linear",
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = "scale(0.95)";
-              }}
-              onMouseUp={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
+                transition: "0.2s",
               }}
             >
               {item.label}
 
-              {/* ACTIVE UNDERLINE */}
               <span
                 style={{
                   position: "absolute",
@@ -119,19 +115,62 @@ export default function Navbar() {
                   height: "2px",
                   background:
                     "linear-gradient(90deg,#ec4899,#3b82f6,#ef4444)",
-
-                  // ⚡ faster underline
-                  transition: "width 0.1s linear",
-
-                  boxShadow: isActive
-                    ? "0 0 10px rgba(239,68,68,0.65)"
-                    : "none",
+                  transition: "width 0.2s",
                 }}
               />
             </a>
           );
         })}
       </div>
+
+      {/* HAMBURGER (Mobile) */}
+      <div
+        onClick={() => setMenuOpen(!menuOpen)}
+        style={{
+          display: window.innerWidth <= 768 ? "flex" : "none",
+          flexDirection: "column",
+          gap: "5px",
+          cursor: "pointer",
+        }}
+      >
+        <span style={{ width: "25px", height: "3px", background: "#fff" }} />
+        <span style={{ width: "25px", height: "3px", background: "#fff" }} />
+        <span style={{ width: "25px", height: "3px", background: "#fff" }} />
+      </div>
+
+      {/* MOBILE MENU */}
+      {menuOpen && (
+        <div
+          style={{
+            position: "absolute",
+            top: "70px",
+            left: 0,
+            width: "100%",
+            background: "#0b0f1a",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            padding: "20px 0",
+            gap: "18px",
+          }}
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={`#${item.link}`}
+              onClick={() => handleClick(item.link)}
+              style={{
+                color: "#e5e7eb",
+                textDecoration: "none",
+                fontSize: "1.1rem",
+                fontWeight: 600,
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

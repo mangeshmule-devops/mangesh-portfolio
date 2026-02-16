@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-/* ===== CERTIFICATE IMAGES (DO NOT RENAME) ===== */
+/* ===== CERTIFICATE IMAGES ===== */
 import rhcsaImg from "../assets/certifications/redhat.png";
 import claImg from "../assets/certifications/linux-academy.png";
 
@@ -30,33 +30,35 @@ export default function Certifications() {
     <section
       id="certifications"
       style={{
-        padding: "110px 6% 180px", // ✅ extra bottom space (prevents clipping)
-        background: "var(--bg-primary)",
-        overflow: "visible",
+        paddingTop: "55px",        // 🔥 moved more UP
+        paddingBottom: "110px",
+        paddingLeft: "6%",
+        paddingRight: "6%",
+        scrollMarginTop: "75px",   // 🔥 tighter navbar offset
       }}
     >
       {/* ===== HEADING ===== */}
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         style={{
           textAlign: "center",
-          marginBottom: "90px",
-          fontSize: "clamp(2.6rem, 4vw, 3.2rem)",
+          marginBottom: "45px",  // 🔥 slightly tighter
+          fontSize: "clamp(2.4rem, 5vw, 3.2rem)",
           fontWeight: 700,
-          color: "#ef4444",
+          background: "linear-gradient(90deg, #ef4444, #f87171)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
         }}
       >
         Certifications
-        <motion.span
-          initial={{ width: 0, opacity: 0 }}
-          whileInView={{ width: "90px", opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <span
           style={{
             display: "block",
+            width: "90px",
             height: "3px",
-            margin: "18px auto 0",
+            margin: "16px auto 0",
             background: "#ef4444",
             borderRadius: "999px",
           }}
@@ -67,8 +69,8 @@ export default function Certifications() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(420px, 1fr))",
-          gap: "60px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "40px",
           justifyItems: "center",
         }}
       >
@@ -78,20 +80,20 @@ export default function Certifications() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{
-              y: -10, // ✅ reduced hover lift
+              y: -8,
               scale: 1.03,
               boxShadow:
-                "0 0 0 1px rgba(239,68,68,0.35), 0 0 32px rgba(239,68,68,0.45)",
+                "0 0 0 1px rgba(239,68,68,0.35), 0 0 28px rgba(239,68,68,0.35)",
             }}
-            transition={{ duration: 0.35, ease: "easeOut" }}
+            transition={{ duration: 0.35 }}
             style={{
               maxWidth: "460px",
               width: "100%",
-              padding: "28px", // ✅ reduced padding
+              padding: "24px",
               borderRadius: "22px",
               background:
                 "linear-gradient(180deg, rgba(239,68,68,0.1), rgba(15,23,42,1))",
-              border: "0.75px solid rgba(148,163,184,0.25)",
+              border: "1px solid rgba(239,68,68,0.25)",
               boxSizing: "border-box",
               display: "flex",
               flexDirection: "column",
@@ -99,26 +101,25 @@ export default function Certifications() {
               textAlign: "center",
             }}
           >
-            {/* ===== CERTIFICATE IMAGE ===== */}
+            {/* IMAGE */}
             <img
               src={cert.image}
               alt={cert.title}
               style={{
                 width: "100%",
-                maxWidth: "400px",
+                maxWidth: "380px",
                 height: "auto",
                 objectFit: "contain",
-                marginBottom: "14px",
-                borderRadius: "6px",
+                marginBottom: "16px",
+                borderRadius: "8px",
                 border: "1px solid rgba(148,163,184,0.35)",
-                background: "transparent",
               }}
             />
 
-            {/* ===== TITLE ===== */}
+            {/* TITLE */}
             <h3
               style={{
-                fontSize: "1.45rem",
+                fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
                 fontWeight: 600,
                 color: "#fecaca",
                 marginBottom: "8px",
@@ -127,21 +128,21 @@ export default function Certifications() {
               {cert.title}
             </h3>
 
-            {/* ===== ISSUER ===== */}
+            {/* ISSUER */}
             <p
               style={{
                 color: "#fca5a5",
-                fontSize: "1rem",
-                marginBottom: "16px",
+                fontSize: "0.95rem",
+                marginBottom: "12px",
               }}
             >
               Issued by {cert.issuer} • {cert.date}
             </p>
 
-            {/* ===== CREDENTIAL ===== */}
+            {/* CREDENTIAL */}
             <p
               style={{
-                fontSize: "0.95rem",
+                fontSize: "0.9rem",
                 color: "#fecaca",
                 marginBottom: "18px",
               }}
@@ -149,20 +150,19 @@ export default function Certifications() {
               Credential ID: {cert.credentialId}
             </p>
 
-            {/* ===== BUTTON ===== */}
+            {/* BUTTON */}
             <a
               href={cert.verifyLink}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                padding: "12px 28px",
+                padding: "10px 24px",
                 borderRadius: "999px",
                 background: "#ef4444",
                 color: "#ffffff",
-                fontSize: "0.95rem",
+                fontSize: "0.9rem",
                 fontWeight: 500,
                 textDecoration: "none",
-                marginTop: "12px", // ✅ no auto push
               }}
             >
               🔗 View Certificate
